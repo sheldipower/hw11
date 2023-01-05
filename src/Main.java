@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
@@ -22,12 +24,12 @@ public class Main {
     }
 
     //Метод для задачи 2
-    public static void recommendationVersion(int clientOS, int year) {
-        if (clientOS == 0 && year >= 2015) {
+    public static void recommendationVersion(int clientOS, int year, int yearNow ) {
+        if (clientOS == 0 && year >= yearNow) {
             System.out.println("Установите версию приложения для iOS по ссылке");
         } else if (clientOS == 0) {
             System.out.println("Установите облегченную версию приложения для iOS по ссылке");
-        } else if (clientOS == 1 && year < 2015) {
+        } else if (clientOS == 1 && year < yearNow) {
             System.out.println("Установите облегченную версию приложения для Android по ссылке");
         } else {
             System.out.println("Установите версию приложения для Android по ссылке");
@@ -37,9 +39,11 @@ public class Main {
     public static void task2() {
         System.out.println("Задача 2");
         int os = 0;
-        int clientDeviceYear = 2002;
-        recommendationVersion(os, clientDeviceYear);
+        int clientYear = 2023;
+        int currentYear = LocalDate.now().getYear();
+        recommendationVersion(os, clientYear, currentYear);
     }
+
 
     //Метод для задачи 3
     public static int countingDays(int distance) {
