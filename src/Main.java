@@ -24,7 +24,8 @@ public class Main {
     }
 
     //Метод для задачи 2
-    public static void recommendationVersion(int clientOS, int year, int yearNow ) {
+    public static void recommendationVersion(int clientOS, int year ) {
+       int yearNow = LocalDate.now().getYear();
         if (clientOS == 0 && year >= yearNow) {
             System.out.println("Установите версию приложения для iOS по ссылке");
         } else if (clientOS == 0) {
@@ -40,8 +41,7 @@ public class Main {
         System.out.println("Задача 2");
         int os = 0;
         int clientYear = 2023;
-        int currentYear = LocalDate.now().getYear();
-        recommendationVersion(os, clientYear, currentYear);
+        recommendationVersion(os, clientYear);
     }
 
 
